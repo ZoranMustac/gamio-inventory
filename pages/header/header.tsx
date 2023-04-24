@@ -1,32 +1,19 @@
 import React, { FC, useEffect, useState } from "react";
 import User from "../user/user";
-import useHeader from "./useHeader";
-import Styles from "../../styles";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import GamioService from "@component/services/gamioService";
 import IUser from "@component/Interfaces/IUser";
 
 const Header: FC = () => {
-  const { views } = useHeader();
-  const [activeIndex, setActiveIndex] = useState(0);
   const [user, setUser] = useState<IUser>();
-  const gamioService = new GamioService();
-
-  const styles = new Styles();
 
   useEffect(() => {
+    const gamioService = new GamioService();
+
     gamioService.fetchUser().then((users) => {
       setUser(users);
       return users;
     });
   }, []);
-
-  const isActive = (index: number) => index === activeIndex;
-
-  const handleClick = (index: number) => {
-    setActiveIndex(index);
-  };
 
   return (
     <div>

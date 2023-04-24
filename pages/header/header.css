@@ -1,0 +1,23 @@
+.forward {
+  margin-top: -28px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .forward {
+    margin-top: -26px;
+    color: #6f819c;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .activeButton {
+    color: #143757;
+  }
+
+  .line {
+    margin-top: 170px;
+    border-top: 1px solid #e5e5e5;
+    line-height: 80%;
+  }
+}

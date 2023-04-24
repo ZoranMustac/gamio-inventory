@@ -1,0 +1,41 @@
+.clip-rectangle {
+  clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+}
+
+.profile {
+  margin-top: 40px;
+}
+.user-handle {
+  margin-top: -15px;
+}
+
+@media screen and (max-width: 768px) {
+  .clip-rectangle {
+    visibility: hidden;
+  }
+
+  .top-center {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .grid-container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  .profile {
+    margin-top: 20px;
+  }
+
+  .user-handle {
+    margin-top: 0px;
+  }
+
+  .grid-items {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+}

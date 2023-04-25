@@ -1,6 +1,11 @@
 .forward {
   margin-top: -28px;
   z-index: 1;
+  margin-left: 50px;
+}
+
+.push-right {
+  margin-left: 145px;
 }
 
 @media screen and (max-width: 768px) {
@@ -13,6 +18,10 @@
 
   .activeButton {
     color: #143757;
+  }
+
+  .push-right {
+    margin-left: 0px;
   }
 
   .line {

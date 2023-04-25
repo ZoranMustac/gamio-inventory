@@ -1,4 +1,4 @@
-class GamioService {
+export default class GamioService {
   public async fetchAll() {
     const url =
       "https://staging-nocodb.gamio.gg/api/v1/db/data/v1/Gamio-frontend-task/Inventory?limit=25&shuffle=0&offset=0";
@@ -31,5 +31,3 @@ class GamioService {
     return data;
   }
 }
-
-export default GamioService;

@@ -47,12 +47,12 @@ const Routing: FC = () => {
   const isActive = (index: number) => index === activeIndex;
   return (
     <div>
-      <div className="flex flex-wrap md:ml-36 lg:ml-48 pl-2 aligning">
+      <div className="flex flex-wrap pl-2 push-right aligning">
         {views.map((view, index) => {
           return (
             <div
               key={view.title}
-              className="md:ml-12 font-bold md:text-gray-400 text-xs forward"
+              className="font-bold md:text-gray-400 text-xs forward"
             >
               <div
                 className={
@@ -63,15 +63,16 @@ const Routing: FC = () => {
                   border-b-4
                   md:text-white
                   pb-2
-                  activeButton
+                  text-[#143757]
               `
                     : `
-              hover:border-solid
-              hover:border-[#FC6947]
-              hover:border-b-4
-              md:hover:text-white
-              pb-2
-          `
+                  hover:border-solid
+                  hover:border-[#FC6947]
+                  hover:border-b-4
+                  hover:text-[#143757]
+                  md:hover:text-white
+                  pb-2
+              `
                 }
               >
                 <button

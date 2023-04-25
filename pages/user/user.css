@@ -9,6 +9,16 @@
   margin-top: -15px;
 }
 
+.doggo-alignment {
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-image {
+    height: 200px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .clip-rectangle {
     visibility: hidden;
@@ -18,6 +28,23 @@
     display: grid;
     justify-items: center;
     align-items: center;
+  }
+
+  .doggo-alignment {
+    margin-left: 0px;
+  }
+
+  .avatar {
+    height: 100px;
+    width: 100px;
+  }
+
+  .header-image {
+    height: 100px;
+  }
+
+  .name-color {
+    color: #143757;
   }
 
   .grid-container {

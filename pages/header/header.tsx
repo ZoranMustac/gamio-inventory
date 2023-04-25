@@ -17,18 +17,21 @@ const Header: FC = () => {
 
   return (
     <div>
-      <div className="w-full h-24  md:h-48 lg:h-80 bg-black relative">
+      <div className="w-full header-image lg:h-80 bg-black relative">
         <img
+          alt="Image"
           src="https://eloncdn.blob.core.windows.net/eu3/sites/74/2019/09/students-1.jpg"
           className="w-full h-full object-cover opacity-40"
         />
       </div>
-      <User
-        Name={user?.Name}
-        Username={user?.Username}
-        level={user?.level}
-        AvatarUrl={user?.AvatarUrl}
-      />
+      <div data-testid={"user-component"}>
+        <User
+          Name={user?.Name}
+          Username={user?.Username}
+          level={user?.level}
+          AvatarUrl={user?.AvatarUrl}
+        />
+      </div>
       <div className="line" />
     </div>
   );

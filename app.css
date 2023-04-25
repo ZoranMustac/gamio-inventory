@@ -3,6 +3,22 @@
   width: 1300px;
 }
 
+.orange-circle {
+  background: rgb(214, 169, 70);
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  z-index: 6;
+}
+
+#circle {
+  background: rgb(231, 164, 18);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
 .border-color {
   border-width: 1px;
   border-style: solid;
@@ -21,7 +37,7 @@
   }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 768px) {
   .alignment {
     width: 300px;
   }

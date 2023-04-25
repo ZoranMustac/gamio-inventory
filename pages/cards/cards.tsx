@@ -51,6 +51,7 @@ const Cards: FC<IProps> = ({
             used={used}
             shipped={shipped}
             shipping_date={shipping_date}
+            code={""}
           />
           <div className="font-extrabold text-[#143757] line-clamp">
             {title?.toLocaleUpperCase()}

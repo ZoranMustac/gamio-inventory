@@ -9,5 +9,5 @@ export default interface IProps {
   claimed?: boolean | null;
   used?: boolean | null;
   shipped?: boolean | null;
-  code?: string;
+  code: string;
 }

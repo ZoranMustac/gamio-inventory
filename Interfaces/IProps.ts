@@ -11,3 +11,7 @@ export default interface IProps {
   shipped?: boolean | null;
   code: string;
 }
+
+export default interface IPropsInfo {
+  items: IProps;
+}

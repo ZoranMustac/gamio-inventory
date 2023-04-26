@@ -1,17 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import User from "../user/user";
-import GamioService from "@component/services/gamioService";
+import useGamioService from "@component/services/gamioService";
 import IUser from "@component/Interfaces/IUser";
 
 const Header: FC = () => {
   const [user, setUser] = useState<IUser>();
 
+  const { fetchUser } = useGamioService();
   useEffect(() => {
-    const gamioService = new GamioService();
-
-    gamioService.fetchUser().then((users) => {
+    fetchUser().then((users) => {
       setUser(users);
-      return users;
     });
   }, []);
 
@@ -25,12 +23,7 @@ const Header: FC = () => {
         />
       </div>
       <div data-testid={"user-component"}>
-        <User
-          Name={user?.Name}
-          Username={user?.Username}
-          level={user?.level}
-          AvatarUrl={user?.AvatarUrl}
-        />
+        <User user={user!} />
       </div>
       <div className="line" />
     </div>

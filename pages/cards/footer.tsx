@@ -2,12 +2,12 @@ import React, { FC, useState } from "react";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import IProps from "@component/Interfaces/IProps";
+import IPropsInfo from "@component/Interfaces/IProps";
 
-const Footer: FC<IProps> = ({ code, claimed, used, shipped }) => {
+const Footer: FC<IPropsInfo> = ({ items }) => {
   const [copied, setCopied] = useState(false);
 
-  if (shipped === true) {
+  if (items?.shipped) {
     return null;
   }
 
@@ -33,35 +33,34 @@ const Footer: FC<IProps> = ({ code, claimed, used, shipped }) => {
           COPIED
         </span>
       ) : null}
-      <div className="pt-2">
-        {claimed === true || used === true ? (
-          <div className="flex border w-64 rounded p-2 codeText code-button">
-            <div className="mr-1 text-[#495967]">
-              <QrCode2Icon />
-            </div>
-            <div className="mr-2 text-[12px] font-bold text-[#495967] mt-1">
-              <p>CODE</p>
-            </div>
-            <input
-              className="ml-2 mr-2 truncate font-semibold text-gray-500 bg-transparent"
-              disabled
-              value={code?.toLocaleUpperCase()}
-              onChange={(e) => e.target.value}
-            />
-            <CopyToClipboard text={code} onCopy={handleCopy}>
-              <button data-testid="button" className="text-[#495967]">
-                <ContentCopyIcon />
-              </button>
-            </CopyToClipboard>
+
+      {items?.claimed || items?.used ? (
+        <div className="flex border w-64 rounded p-2 codeText code-button">
+          <div className="mr-1 text-[#495967]">
+            <QrCode2Icon />
           </div>
-        ) : (
-          <div className="drop-shadow-xl code-button">
-            <button className="bg-blue-500 w-56 text-white rounded py-2 font-semibold text-xs">
-              ORDER SHIPPING
+          <div className="mr-2 text-[12px] font-bold text-[#495967] mt-1">
+            <p>CODE</p>
+          </div>
+          <input
+            className="ml-2 mr-2 truncate font-semibold text-gray-500 bg-transparent"
+            disabled
+            value={items?.code.toLocaleUpperCase()}
+            onChange={(e) => e.target.value}
+          />
+          <CopyToClipboard text={items?.code} onCopy={handleCopy}>
+            <button data-testid="button" className="text-[#495967]">
+              <ContentCopyIcon />
             </button>
-          </div>
-        )}
-      </div>
+          </CopyToClipboard>
+        </div>
+      ) : (
+        <div className="drop-shadow-xl code-button">
+          <button className="bg-blue-500 w-56 text-white rounded py-2 font-semibold text-xs">
+            ORDER SHIPPING
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -4,6 +4,10 @@
   margin-left: 50px;
 }
 
+.activeButton {
+  color: white;
+}
+
 .push-right {
   margin-left: 145px;
 }

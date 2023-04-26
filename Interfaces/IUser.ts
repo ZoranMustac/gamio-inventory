@@ -4,3 +4,7 @@ export default interface IUser {
   level?: number;
   AvatarUrl?: string;
 }
+
+export default interface IUserInfo {
+  user: IUser;
+}

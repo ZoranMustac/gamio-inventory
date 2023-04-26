@@ -1,17 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 import Cards from "@component/pages/cards/cards";
 import IInventory from "@component/Interfaces/IInventory";
-import GamioService from "@component/services/gamioService";
+import useGamioService from "@component/services/gamioService";
 
 const Inventory: FC = () => {
   const [gamio, setGamio] = useState<IInventory>();
 
+  const { fetchAll } = useGamioService();
   useEffect(() => {
-    const gamioService = new GamioService();
-
-    gamioService.fetchAll().then((games) => {
+    fetchAll().then((games) => {
       setGamio(games);
-      return games;
     });
   }, []);
 
@@ -24,13 +22,14 @@ const Inventory: FC = () => {
         {gamio?.list.map((item) => (
           <Cards
             key={item.Id}
-            image_url={item.image_url}
             title={item.title}
+            image_url={item.image_url}
             claimed={item.claimed}
             used={item.used}
             shipped={item.shipped}
-            code={item.code}
+            items={item.items}
             shipping_date={item.shipping_date}
+            code={item.code}
           />
         ))}
       </div>

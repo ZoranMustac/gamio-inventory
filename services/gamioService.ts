@@ -1,9 +1,10 @@
-export default class GamioService {
-  public async fetchAll() {
-    const url =
-      "https://staging-nocodb.gamio.gg/api/v1/db/data/v1/Gamio-frontend-task/Inventory?limit=25&shuffle=0&offset=0";
+const useGamioService = () => {
+  const url =
+    "https://staging-nocodb.gamio.gg/api/v1/db/data/v1/Gamio-frontend-task/";
+  const fetchAll = async () => {
+    const all = `${url}Inventory?limit=25&shuffle=0&offset=0`;
 
-    const response = await fetch(url, {
+    const response = await fetch(all, {
       method: "GET",
       headers: {
         accept: "application/json",
@@ -11,15 +12,13 @@ export default class GamioService {
       },
     });
 
-    const data = await response.json();
-    return data;
-  }
+    return response.json();
+  };
 
-  public async fetchUser() {
-    const url =
-      "https://staging-nocodb.gamio.gg/api/v1/db/data/v1/Gamio-frontend-task/User/0";
+  const fetchUser = async () => {
+    const user = `${url}User/0`;
 
-    const response = await fetch(url, {
+    const response = await fetch(user, {
       method: "GET",
       headers: {
         accept: "application/json",
@@ -27,7 +26,13 @@ export default class GamioService {
       },
     });
 
-    const data = await response.json();
-    return data;
-  }
-}
+    return response.json();
+  };
+
+  return {
+    fetchAll,
+    fetchUser,
+  };
+};
+
+export default useGamioService;

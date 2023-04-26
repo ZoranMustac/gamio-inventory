@@ -2,26 +2,19 @@ import React, { FC } from "react";
 import { Card } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Footer from "./footer";
-import IProps from "@component/Interfaces/IProps";
+import IPropsInfo from "@component/Interfaces/IProps";
 import Tags from "./tags";
 
-const Cards: FC<IProps> = ({
-  title,
-  code,
-  image_url,
-  claimed,
-  used,
-  shipped,
-  shipping_date,
-}) => {
+const Cards: FC<IPropsInfo> = (list) => {
   return (
     <div
+      key={list?.Id}
       className={(() => {
-        if (used === true) {
+        if (list?.used) {
           return `bg-[#F7F7F7] shadow-2xl`;
-        } else if (shipped === true) {
+        } else if (list?.shipped) {
           return `border-color bg-[#F7F7F7] shadow-xl`;
-        } else if (claimed === true) {
+        } else if (list?.claimed) {
           return `bg-white shadow-2xl`;
         } else {
           return `bg-white shadow-2xl`;
@@ -40,29 +33,18 @@ const Cards: FC<IProps> = ({
           <CardMedia
             sx={{ height: 250, width: 250 }}
             image={
-              image_url ??
+              list?.image_url ??
               "https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png"
             }
           />
         </div>
         <div className="text-center flex flex-col justify-center items-center mt-8">
-          <Tags
-            claimed={claimed}
-            used={used}
-            shipped={shipped}
-            shipping_date={shipping_date}
-            code={""}
-          />
+          <Tags items={list} code={""} />
           <div className="font-extrabold text-[#143757] line-clamp">
-            {title?.toLocaleUpperCase()}
+            {list?.title?.toLocaleUpperCase()}
           </div>
-          <div className="child">
-            <Footer
-              claimed={claimed}
-              used={used}
-              shipped={shipped}
-              code={code}
-            />
+          <div className="child pt-2">
+            <Footer items={list} code={""} />
           </div>
         </div>
       </Card>
